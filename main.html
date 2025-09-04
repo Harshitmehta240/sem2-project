@@ -429,9 +429,12 @@
         /* Founders Grid for Section 3 */
         .founders-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(2, 1fr); /* Fixed 2 columns */
             gap: 30px;
             margin-top: 30px;
+            max-width: 600px; /* Limit width for better centering */
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .founder-card {
@@ -829,9 +832,14 @@
                 padding: 40px 20px;
             }
             
-            .car-grid, .founders-grid, .auction-grid, .plate-grid {
+            .car-grid, .auction-grid, .plate-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+            
+            .founders-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                max-width: 300px; /* Adjust max width for mobile */
             }
             
             .booking-form {
@@ -1225,13 +1233,7 @@
                     </div>
                 </div>
                 
-                <div class="plate-card">
-                    <div class="plate-display">GJ 01 CC 0055</div>
-                    <div class="plate-info">
-                        <p class="plate-type">Custom Series</p>
-                        <p class="plate-price">₹7 Lakh</p>
-                    </div>
-                </div>
+                
             </div>
             <a href="number-plates.html" class="btn" style="margin-top: 30px;">View All Number Plates</a>
         </div>
