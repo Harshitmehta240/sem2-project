@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Drive Nest — Services & Alloys</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            /* primary brand color (black) */
+            --panel: #111111;
+            /* neutral surface */
+            --text: #ffffff;
+            /* neutral */
+            --muted: #9ca3af;
+            /* neutral (muted gray) */
+            --line: #2a2a2a;
+            /* subtle borders */
+            --radius: 14px;
+            --pad: 20px;
+        }
+
+        /* Reset */
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        /* Layout helpers */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        .section {
+            padding: 56px 0
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px
+        }
+
+        @media (min-width:768px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+
+        @media (min-width:768px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: saturate(140%) blur(8px);
+            background: rgba(10, 10, 10, .6);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            letter-spacing: .4px
+        }
+
+        .brand-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--line);
+            background: #000;
+            font-size: 12px
+        }
+
+        .nav-links {
+            display: none;
+            gap: 18px;
+            color: var(--muted)
+        }
+
+        .nav-links a {
+            padding: 6px 10px;
+            border-radius: 8px;
+            border: 1px solid transparent
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            border-color: var(--line)
+        }
+
+        @media (min-width:900px) {
+            .nav-links {
+                display: flex
+            }
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 72vh;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .hero-media {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0) contrast(1.05) brightness(.8);
+            transform: scale(1.06);
+            animation: kenburns 18s ease-out both;
+        }
+
+        @keyframes kenburns {
+            0% {
+                transform: scale(1.15) translateY(2%);
+                filter: saturate(0) contrast(1.05) brightness(.7)
+            }
+
+            100% {
+                transform: scale(1.06) translateY(0);
+                filter: saturate(0) contrast(1.05) brightness(.8)
+            }
+        }
+
+        .hero-inner {
+            text-align: center;
+            max-width: 860px;
+            padding: 24px 18px;
+        }
+
+        .kicker {
+            display: inline-block;
+            padding: 6px 10px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: .2px;
+            animation: fadeUp .8s .15s both;
+        }
+
+        .headline {
+            margin: 14px 0 10px;
+            font-size: clamp(28px, 5vw, 56px);
+            font-weight: 800;
+            letter-spacing: .2px;
+            animation: fadeUp .8s .25s both;
+        }
+
+        .sub {
+            color: var(--muted);
+            max-width: 680px;
+            margin: 0 auto 10px;
+            font-size: clamp(14px, 2.4vw, 18px);
+            animation: fadeUp .8s .35s both;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 12px;
+            margin-top: 18px;
+            animation: fadeUp .8s .45s both;
+        }
+
+        .btn {
+            appearance: none;
+            border: 1px solid var(--line);
+            background: #0c0c0c;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform .2s ease, border-color .2s ease, background .2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            border-color: #3a3a3a;
+            background: #0f0f0f
+        }
+
+        .btn.ghost {
+            background: transparent;
+            color: var(--text)
+        }
+
+        .btn.ghost:hover {
+            background: #0d0d0d
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* Cards */
+        .card {
+            background: linear-gradient(180deg, #0b0b0b, #0a0a0a);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: var(--pad);
+            position: relative;
+            overflow: hidden;
+            transition: transform .2s ease, border-color .2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #3a3a3a
+        }
+
+        .card .thumb {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            aspect-ratio: 16/9;
+            background: #0c0c0c;
+            margin-bottom: 14px;
+        }
+
+        .card .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0) contrast(1.05)
+        }
+
+        .card h3 {
+            margin: 0 0 6px;
+            font-size: 18px
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted)
+        }
+
+        .chip {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            font-size: 11px;
+            color: #e5e5e5;
+            border: 1px solid var(--line);
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: #0b0b0b9a;
+            backdrop-filter: blur(4px)
+        }
+
+        /* Alloys strip */
+        .strip {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: 75%;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 6px;
+        }
+
+        .strip::-webkit-scrollbar {
+            height: 8px
+        }
+
+        .strip::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 8px
+        }
+
+        @media (min-width:900px) {
+            .strip {
+                grid-auto-columns: 33%
+            }
+        }
+
+        .tile {
+            position: relative;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+            scroll-snap-align: start;
+            background: #0b0b0b;
+            transition: transform .2s ease, border-color .2s ease;
+        }
+
+        .tile:hover {
+            transform: translateY(-3px);
+            border-color: #3a3a3a
+        }
+
+        .tile img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            filter: saturate(0) contrast(1.05)
+        }
+
+        .tile .label {
+            position: absolute;
+            left: 12px;
+            bottom: 12px;
+            background: #000a;
+            border: 1px solid var(--line);
+            color: #fff;
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 12px;
+            backdrop-filter: blur(6px)
+        }
+
+        /* CTA */
+        .cta {
+            background: #0b0b0b;
+            border: 1px solid var(--line);
+            border-radius: calc(var(--radius) + 2px);
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: flex-start
+        }
+
+        @media (min-width:900px) {
+            .cta {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between
+            }
+        }
+
+        .cta p {
+            margin: 0;
+            color: var(--muted)
+        }
+
+        .cta strong {
+            color: #fff
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--line);
+            padding: 28px 0;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        /* Motion sensitivity */
+        @media (prefers-reduced-motion:reduce) {
+            * {
+                animation: none !important;
+                transition: none !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    Header
+    <header class="header">
+        <div class="container nav">
+            <div class="brand">
+                <span class="brand-badge">DN</span>
+                <span>Drive&nbsp;Nest</span>
+            </div>
+            <nav class="nav-links" aria-label="Primary">
+                <a href="#">Home</a>
+                <a href="#">Services</a>
+                <a href="#">Alloys</a>
+                <a href="#">Gallery</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        Hero
+        <section class="hero">
+            <div class="hero-media" aria-hidden="true">
+                Black & white hero image from Unsplash (licensed); replace if you have your own
+                <img src="https://images.unsplash.com/photo-1517940310602-6952f17a4e6f?q=80&w=2100&auto=format&fit=crop&ixlib=rb-4.0.3&crop=entropy"
+                    alt="" />
+            </div>
+            <div class="hero-inner container">
+                <span class="kicker">Premium Auto Care</span>
+                <h1 class="headline">Detailing, PPF & Ceramic — Plus an Alloy Studio</h1>
+                <p class="sub">Black-and-white, minimal, and precise. Elevate your car’s finish and wheels with Drive
+                    Nest.</p>
+                <div class="hero-cta">
+                    <a class="btn" href="#services">View Services</a>
+                    <a class="btn ghost" href="#alloys">Explore Alloys</a>
+                </div>
+            </div>
+        </section>
+
+        Services
+        <section id="services" class="section">
+            <div class="container">
+                <div class="grid grid-3" style="margin-bottom:18px">
+                    <article class="card" style="animation:fadeUp .7s .05s both">
+                        <span class="chip">Ceramic</span>
+                        <div class="thumb">
+                            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&crop=entropy"
+                                alt="Ceramic coating on black car" />
+                        </div>
+                        <h3>Ceramic Coating</h3>
+                        <p>Mirror gloss with hydrophobic protection and easier maintenance.</p>
+                    </article>
+
+                    <article class="card" style="animation:fadeUp .7s .1s both">
+                        <span class="chip">PPF</span>
+                        <div class="thumb">
+                            <img src="https://images.unsplash.com/photo-1599819816316-3a9757a09a9b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&crop=entropy"
+                                alt="Applying PPF film" />
+                        </div>
+                        <h3>Paint Protection Film</h3>
+                        <p>Invisible self-healing film to guard against chips, swirls, and UV.</p>
+                    </article>
+
+                    <article class="card" style="animation:fadeUp .7s .15s both">
+                        <span class="chip">Detail</span>
+                        <div class="thumb">
+                            <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&crop=entropy"
+                                alt="Detailing black paintwork" />
+                        </div>
+                        <h3>Signature Detailing</h3>
+                        <p>Paint correction and finishing for a deep, uniform black sheen.</p>
+                    </article>
+                </div>
+
+                <div class="grid grid-3">
+                    <article class="card" style="animation:fadeUp .7s .2s both">
+                        <span class="chip">Interior</span>
+                        <div class="thumb">
+                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&crop=entropy"
+                                alt="Premium car interior" />
+                        </div>
+                        <h3>Interior & Leather Care</h3>
+                        <p>Steam clean, sanitize, and condition for a refined cabin feel.</p>
+                    </article>
+
+                    <article class="card" style="animation:fadeUp .7s .25s both">
+                        <span class="chip">Wheels</span>
+                        <div class="thumb">
+                            <img src="https://images.unsplash.com/photo-1517940310602-6952f17a4e6f?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&crop=entropy"
+                                alt="Close-up of alloy wheel" />
+                        </div>
+                        <h3>Alloy Restoration</h3>
+                        <p>Refurbish kerb rash, repaint, or switch to a satin black finish.</p>
+                    </article>
+
+                    <article class="card" style="animation:fadeUp .7s .3s both">
+                        <span class="chip">Balance</span>
+                        <div class="thumb">
+                            <img src="https://images.unsplash.com/photo-1616453941015-7a5ad2d53675?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&crop=entropy"
+                                alt="Wheel alignment" />
+                        </div>
+                        <h3>Alignment & Balancing</h3>
+                        <p>Sharper handling, even wear, and a smoother, quieter ride.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        Alloys showcase
+        <section id="alloys" class="section" aria-label="Alloy Gallery">
+            <div class="container">
+                <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px">
+                    <h2 style="margin:0;font-size:28px">Alloy Studio</h2>
+                    <span style="color:var(--muted);font-size:14px">Drag to browse</span>
+                </div>
+                <div class="strip">
+                    <figure class="tile" style="animation:fadeUp .6s .05s both">
+                        <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&crop=entropy"
+                            alt="Gloss black multi-spoke wheel" />
+                        <figcaption class="label">Gloss Black</figcaption>
+                    </figure>
+                    <figure class="tile" style="animation:fadeUp .6s .1s both">
+                        <img src="https://images.unsplash.com/photo-1605515298946-d062f2f14b03?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&crop=entropy"
+                            alt="Machined face alloy wheel" />
+                        <figcaption class="label">Machined Face</figcaption>
+                    </figure>
+                    <figure class="tile" style="animation:fadeUp .6s .15s both">
+                        <img src="https://images.unsplash.com/photo-1516726817505-f5ed825624d8?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&crop=entropy"
+                            alt="Satin black concave wheel" />
+                        <figcaption class="label">Satin Black</figcaption>
+                    </figure>
+                    <figure class="tile" style="animation:fadeUp .6s .2s both">
+                        <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&crop=entropy"
+                            alt="Forged monoblock wheel" />
+                        <figcaption class="label">Forged Mono</figcaption>
+                    </figure>
+                    <figure class="tile" style="animation:fadeUp .6s .25s both">
+                        <img src="https://images.unsplash.com/photo-1618359073603-3f451a6582a1?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&crop=entropy"
+                            alt="Deep lip wheel" />
+                        <figcaption class="label">Deep Lip</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        CTA
+        <section class="section">
+            <div class="container cta" style="animation:fadeUp .7s .05s both">
+                <div>
+                    <strong>Ready for a premium finish?</strong>
+                    <p>Message us with your car model, current finish, and desired outcome. We’ll recommend the ideal
+                        service stack.</p>
+                </div>
+                <a class="btn" href="#">Get a Quote</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container"
+            style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap">
+            <span>© Drive Nest</span>
+            <span style="color:var(--muted)">Made black & white. No JS, pure HTML+CSS.</span>
+        </div>
+    </footer>
+</body>
+
+</html>

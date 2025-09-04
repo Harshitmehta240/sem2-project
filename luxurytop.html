@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXURY AUTOMOTIVE - Premium Car Marketplace</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary:  #000000; /* Black */
+            --secondary: #ffffff; /* White */
+            --gray: #f5f5f5; /* Light Gray */
+            --card-size: 140px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--secondary); /* Changed to white */
+            color: var(--primary); /* Changed to black */
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        /* Entry Page Styles */
+        .entry-page {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: var(--primary);
+            background-image: url('vecteezy_front-view-dark-silhouette-of-a-modern-luxury-black-car_23977547.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .entry-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        .entry-content {
+            text-align: center;
+            z-index: 2;
+            padding: 2rem;
+        }
+        .entry-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: 10px;
+            margin-bottom: 1rem;
+            opacity: 0;
+            color: var(--secondary); /* White text */
+            animation: fadeInUp 1.5s ease forwards;
+        }
+        .entry-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            opacity: 0;
+            color: var(--secondary); /* White text */
+            animation: fadeInUp 1.5s ease 0.5s forwards;
+        }
+        .entry-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background-color: transparent;
+            color: var(--secondary); /* White text */
+            border: 2px solid var(--secondary); /* White border */
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease 1s forwards;
+        }
+        .entry-button:hover {
+            background-color: var(--secondary);
+            color: var(--primary); /* Black text on hover */
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        /* Available Brands Section */
+        .brands-section {
+            margin-bottom: 8rem;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            text-align: center;
+            letter-spacing: 3px;
+            position: relative;
+            color: var(--primary); /* Black text */
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary); /* Black underline */
+        }
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(var(--card-size), 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+        .brand-card {
+            width: var(--card-size);
+            height: var(--card-size);
+            background-color: var(--gray); /* Light gray background */
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary); /* Black text */
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1); /* Light black border */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+            position: relative;
+            overflow: hidden;
+        }
+        .brand-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .brand-card:hover::before {
+            opacity: 1;
+        }
+        .brand-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(0, 0, 0, 0.3);
+        }
+        .brand-image {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+        .brand-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 8px 0;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        /* Image Gallery Section */
+        .gallery-section {
+            margin-bottom: 8rem;
+            overflow: hidden;
+        }
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .gallery-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+        .gallery-track:hover {
+            animation-play-state: paused;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 400px;
+            height: 300px;
+            margin-right: 20px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--secondary); /* White text */
+        }
+        .gallery-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+        .gallery-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        /* Search Section */
+        .search-section {
+            margin-bottom: 6rem;
+            text-align: center;
+        }
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 1.2rem 3rem 1.2rem 1.5rem;
+            background-color: var(--gray);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+            color: var(--primary);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-input:focus {
+            border-color: rgba(0, 0, 0, 0.3);
+        }
+        .search-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        /* Category Section */
+        .category-section {
+            margin-bottom: 6rem;
+        }
+        .category-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .category-btn {
+            padding: 0.8rem 2rem;
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .category-btn:hover {
+            background-color: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-5px);
+        }
+         /* Auction Section */
+        .auction-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-image: url('pexels-mike-bird-170811.jpg');
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 5.8s;
+        }
+        
+        .auction-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        
+        .auction-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+            color: var(--secondary);
+        }
+        
+        .auction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .auction-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+        
+        .auction-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .auction-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .auction-info {
+            padding: 15px;
+        }
+        
+        .auction-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .auction-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .auction-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .auction-timer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #d9534f;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .auction-timer i {
+            margin-right: 8px;
+        }
+        
+        /* Number Plates Section */
+        .numberplates-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-image: url('pexels-pixabay-163277.jpg');
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 6s;
+        }
+        
+        .numberplates-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        
+        .numberplates-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+            color: var(--secondary);
+        }
+        
+        .plate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .plate-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+        
+        .plate-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .plate-display {
+            background-color: #f0f0f0;
+            padding: 15px;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .plate-info {
+            padding: 15px;
+        }
+        
+        .plate-type {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .plate-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        /* Footer */
+        .footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--primary);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .entry-title {
+                font-size: 3rem;
+                letter-spacing: 5px;
+            }
+            
+            .brands-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .brand-card {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .brand-name {
+                font-size: 0.7rem;
+            }
+            
+            .gallery-item {
+                width: 300px;
+                height: 200px;
+            }
+            
+            .category-buttons {
+                gap: 1rem;
+            }
+            
+            .category-btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Entry Page -->
+    <div class="entry-page">
+        <div class="entry-content">
+            <h1 class="entry-title">LUXURY</h1>
+            <p class="entry-subtitle">Automotive Excellence</p>
+            <a href="#main" class="entry-button">Enter</a>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div id="main" class="container">
+        <!-- Available Brands Section -->
+        <section class="brands-section">
+            <h2 class="section-title">Available Brands</h2>
+            <div class="brands-grid">
+               <!-- International Luxury Brands -->
+<a href="cars.html?brand=bugatti" class="brand-card">
+    <img src="bl.png" alt="Bugatti" class="brand-image">
+    <div class="brand-name">Bugatti</div>
+</a>
+
+<a href="cars.html?brand=lamborghini" class="brand-card">
+    <img src="ll.jpg" alt="Lamborghini" class="brand-image">
+    <div class="brand-name">Lamborghini</div>
+</a>
+
+<a href="cars.html?brand=ferrari" class="brand-card">
+    <img src="fl.jpg" alt="Ferrari" class="brand-image">
+    <div class="brand-name">Ferrari</div>
+</a>
+
+<a href="cars.html?brand=bmw" class="brand-card">
+    <img src="bmwl.png" alt="BMW" class="brand-image">
+    <div class="brand-name">BMW</div>
+</a>
+
+<a href="cars.html?brand=audi" class="brand-card">
+    <img src="al.png" alt="Audi" class="brand-image">
+    <div class="brand-name">Audi</div>
+</a>
+
+<a href="cars.html?brand=mercedes" class="brand-card">
+    <img src="ml.jpg" alt="Mercedes" class="brand-image">
+    <div class="brand-name">Mercedes</div>
+</a>
+
+<a href="cars.html?brand=porsche" class="brand-card">
+    <img src="images.png" alt="Porsche" class="brand-image">
+    <div class="brand-name">Porsche</div>
+</a>
+
+<a href="cars.html?brand=rollsroyce" class="brand-card">
+    <img src="rls.png" alt="Rolls Royce" class="brand-image">
+    <div class="brand-name">Rolls Royce</div>
+</a>
+
+<a href="cars.html?brand=mclaren" class="brand-card">
+    <img src="f1.png" alt="McLaren" class="brand-image">
+    <div class="brand-name">McLaren</div>
+</a>
+
+<a href="cars.html?brand=bentley" class="brand-card">
+    <img src="bl2.png" alt="Bentley" class="brand-image">
+    <div class="brand-name">Bentley</div>
+</a>
+
+<a href="cars.html?brand=astonmartin" class="brand-card">
+    <img src="aml.png" alt="Aston Martin" class="brand-image">
+    <div class="brand-name">Aston Martin</div>
+</a>
+
+<a href="cars.html?brand=maybach" class="brand-card">
+    <img src="ml.jpg" alt="Maybach" class="brand-image">
+    <div class="brand-name">Maybach</div>
+</a>
+
+<a href="cars.html?brand=ford" class="brand-card">
+    <img src="fl2.png" alt="Ford" class="brand-image">
+    <div class="brand-name">Ford</div>
+</a>
+            </div>
+        </section>
+                
+        <section class="gallery-section">
+    <h2 class="section-title">Collection</h2>
+    <div class="gallery-container">
+        <div class="gallery-track">
+            <!-- First set of images -->
+            <div class="gallery-item">
+                <img src="lx1.png" alt="Luxury Car">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Bugatti Chiron</div>
+                    <div class="gallery-subtitle">Ultimate Luxury</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="lx2.png" alt="Luxury Car">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Lamborghini Aventador</div>
+                    <div class="gallery-subtitle">Italian Excellence</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="lx3.png" alt="Luxury Car">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Ferrari SF90</div>
+                    <div class="gallery-subtitle">Hybrid Power</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="lx4.png" alt="Luxury Car">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">BMW i8</div>
+                    <div class="gallery-subtitle">Future of Driving</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="lx5.png" alt="Luxury Car">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Audi R8</div>
+                    <div class="gallery-subtitle">German Engineering</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="lx6.png" alt="Luxury Car">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Mercedes AMG</div>
+                    <div class="gallery-subtitle">Performance Luxury</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="lx7.png" alt="Luxury Car">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Tata Safari</div>
+                    <div class="gallery-subtitle">Indian Pride</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="lx8.png" alt="Luxury Car">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Mahindra Thar</div>
+                    <div class="gallery-subtitle">Off-Road Legend</div>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+</section>
+
+                    
+                
+        <!-- Search Section -->
+        <section class="search-section">
+            <h2 class="section-title">Find Your Dream Car</h2>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search for luxury cars, brands, or models...">
+                <button class="search-button">🔍</button>
+            </div>
+        </section>
+        <!-- Category Section -->
+        <section class="category-section">
+            <h2 class="section-title">Explore</h2>
+            <div class="category-buttons">
+                <a href="#new-arrivals" class="category-btn">New Arrivals</a>
+                <a href="#best-arrivals" class="category-btn">Best Arrivals</a>
+                <a href="#all-cars" class="category-btn">All Cars</a>
+                <a href="#offers" class="category-btn">Offers</a>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2023 LUXURY AUTOMOTIVE. All rights reserved. | Experience the pinnacle of automotive excellence</p>
+    </footer>
+</body>
+</html>

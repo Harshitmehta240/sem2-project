@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlateIndia - Premium Number Plates</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* Color system: 5 colors total */
+        :root {
+            --white: #000000;
+            --black: #faf5f5;
+            --gray: #6B7280;
+            --off: #F5F5F5;
+            --gold: #60acc2;
+
+            /* Map existing names to the palette (no extra colors introduced) */
+            --primary-white: var(--black);
+            --charcoal: var(--white);
+            --dark-charcoal: #000000;
+            --light-gold: var(--gold);
+            --light-gray: var(--off);
+            --medium-gray: var(--gray);
+            --border-color: var(--off);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: var(--light-gray);
+            padding-top: 80px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--gold)
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 18px
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: .2s ease;
+        }
+
+        .nav-link:hover {
+            background: var(--off);
+            color: var(--gold)
+        }
+
+        .nav-cta {
+            text-decoration: none;
+            background: var(--gold);
+            color: var(--primary-white);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: .2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--charcoal)
+        }
+
+        /* Minimal Entrance Hero with B/W video */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-charcoal);
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: grayscale(100%) contrast(1.1) brightness(0.85);
+            pointer-events: none;
+            /* ensure video is a true background (unclickable) */
+        }
+
+        /* Fallback if user prefers reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-video {
+                display: none
+            }
+
+            .hero {
+                background: url('53b4b688-cf43-4b66-b552-3d08e370bde6_wm.mp4') center/cover no-repeat
+            }
+        }
+
+        .hero-overlay {
+            /* ultra-minimal overlay so video stays visible */
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.15));
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--primary-white);
+            padding: 16px 20px;
+            max-width: 820px;
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        .hero-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 8px;
+            opacity: .95;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            opacity: .9;
+            margin-bottom: 18px;
+            line-height: 1.65;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: var(--primary-white);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 999px;
+            backdrop-filter: blur(6px);
+            background: transparent;
+            transition: .2s ease;
+        }
+
+        .cta-button:hover {
+            border-color: var(--gold);
+            color: var(--gold)
+        }
+
+        .features {
+            position: absolute;
+            bottom: 22px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            padding: 0 16px;
+        }
+
+        .feature {
+            color: #eaeaea;
+            text-align: center;
+            opacity: .85;
+            transition: .2s ease
+        }
+
+        .feature:hover {
+            opacity: 1;
+            transform: translateY(-2px)
+        }
+
+        .feature i {
+            color: var(--gold);
+            font-size: 1.25rem;
+            margin-bottom: 6px;
+            display: block
+        }
+
+        .feature-title {
+            font-weight: 600
+        }
+
+        .feature-desc {
+            font-size: .9rem;
+            opacity: .85
+        }
+
+        /* Page Header + Tabs */
+        .page-header {
+            background: linear-gradient(135deg, var(--charcoal), var(--dark-charcoal));
+            color: var(--primary-white);
+            text-align: center;
+            padding: 48px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1554224713-d8560f709cbe?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            opacity: .15;
+            z-index: 0;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 1
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 8px
+        }
+
+        .page-subtitle {
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #e7e7e7
+        }
+
+        .tabs-section {
+            background: var(--primary-white);
+            position: sticky;
+            top: 80px;
+            z-index: 10;
+            border-bottom: 1px solid var(--border-color)
+        }
+
+        .tabs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 20px
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+
+        .tab {
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: 999px;
+            transition: .2s ease;
+        }
+
+        .tab:hover {
+            background: var(--off);
+            color: var(--charcoal)
+        }
+
+        .tab.active {
+            background: var(--gold);
+            color: var(--primary-white)
+        }
+
+        /* Content sections */
+        .content-section {
+            padding: 40px 0
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 26px;
+            color: var(--charcoal);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 72px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .plate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .plate-card {
+            background: var(--primary-white);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: .2s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .plate-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08)
+        }
+
+        .plate-display {
+            background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+            padding: 22px;
+            text-align: center;
+            position: relative
+        }
+
+        .plate-type {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--gold);
+            color: var(--primary-white);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: .75rem;
+            font-weight: 700;
+        }
+
+        .plate-number {
+            background: var(--primary-white);
+            color: var(--charcoal);
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 3px solid #333;
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 1.4rem;
+            min-width: 180px;
+        }
+
+        .plate-info {
+            padding: 18px
+        }
+
+        .plate-title {
+            font-weight: 800;
+            margin-bottom: 10px
+        }
+
+        .plate-details {
+            margin-bottom: 14px
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: .95rem;
+        }
+
+        .detail-label {
+            color: var(--gray)
+        }
+
+        .detail-value {
+            font-weight: 700;
+            color: var(--charcoal)
+        }
+
+        .current-bid {
+            color: var(--gold)
+        }
+
+        .plate-actions {
+            display: flex;
+            gap: 10px
+        }
+
+        .btn {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            color: var(--charcoal);
+            background: var(--primary-white);
+            transition: .2s ease;
+        }
+
+        .btn:hover {
+            border-color: var(--gold);
+            color: var(--gold)
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--primary-white);
+            border-color: var(--gold)
+        }
+
+        .btn-primary:hover {
+            background: var(--charcoal);
+            border-color: var(--charcoal);
+            color: var(--primary-white)
+        }
+
+        /* Regular Plates Search */
+        .normal-plates {
+            background: var(--primary-white)
+        }
+
+        .search-section {
+            background: var(--off);
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 22px
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .form-group label {
+            font-weight: 700;
+            color: var(--charcoal)
+        }
+
+        .form-group select,
+        .form-group input {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: .2s ease;
+            background: var(--primary-white);
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--gold)
+        }
+
+        .search-btn {
+            background: var(--gold);
+            color: var(--primary-white);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .search-btn:hover {
+            background: var(--charcoal)
+        }
+
+        /* Government Portal */
+        .gov-portal {
+            background: var(--primary-white)
+        }
+
+        .gov-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 22px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.12));
+        }
+
+        .gov-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 12px
+        }
+
+        .gov-description {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 18px
+        }
+
+        .gov-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 14px
+        }
+
+        .gov-link {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 700;
+            border: 1px solid var(--border-color);
+            background: var(--primary-white);
+            padding: 10px 14px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: .2s ease;
+        }
+
+        .gov-link i {
+            color: var(--gold)
+        }
+
+        .gov-link:hover {
+            border-color: var(--gold);
+            color: var(--gold)
+        }
+
+        .note {
+            font-size: .9rem;
+            color: var(--gray);
+            font-style: italic
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-charcoal);
+            color: var(--primary-white);
+            text-align: center;
+            padding: 36px 0;
+            margin-top: 30px
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 900;
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 10px
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 14px;
+            flex-wrap: wrap
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: var(--primary-white);
+            opacity: .9
+        }
+
+        .footer-link:hover {
+            color: var(--gold)
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 14px
+        }
+
+        .social-icon {
+            color: var(--primary-white);
+            font-size: 1.2rem
+        }
+
+        .social-icon:hover {
+            color: var(--gold)
+        }
+
+        .copyright {
+            color: #c9c9c9;
+            font-size: .9rem
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* Responsive */
+        @media (max-width:768px) {
+            .nav-menu {
+                display: none
+            }
+
+            .hero {
+                min-height: 78vh
+            }
+
+            .hero-logo {
+                font-size: 1.6rem
+            }
+
+            .hero-tagline {
+                font-size: 1.25rem
+            }
+
+            .features {
+                position: static;
+                margin-top: 10px
+            }
+
+            .tabs {
+                gap: 8px
+            }
+
+            .plate-grid {
+                grid-template-columns: 1fr
+            }
+
+            .plate-actions {
+                flex-direction: column
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 8px
+            }
+        }
+    </style>
+</head>
+
+<body>
+   
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#hero" class="logo" aria-label="PlateIndia home">
+                <i class="fas fa-car" aria-hidden="true"></i>
+                DriveNest
+            </a>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a role="menuitem" href="#hero" class="nav-link">Home</a></li>
+                <li role="none"><a role="menuitem" href="#vip-content" class="nav-link">VIP Plates</a></li>
+                <li role="none"><a role="menuitem" href="#regular-content" class="nav-link">Regular Plates</a></li>
+                <li role="none"><a role="menuitem" href="#gov-content" class="nav-link">Gov Portal</a></li>
+               
+            </ul>
+            <a href="#" class="nav-cta">Register Now</a>
+        </div>
+    </nav>
+
+   
+    <section class="hero" id="hero" aria-label="Entrance video section">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto"
+            poster="https://images.unsplash.com/photo-1554224713-d8560f709cbe?q=80&w=1200&auto=format&fit=crop"
+            aria-hidden="true">
+            
+            <source src="53b4b688-cf43-4b66-b552-3d08e370bde6_wm.mp4"
+                type="video/mp4" />
+        </video>
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        <div class="hero-content">
+            <div class="hero-logo">
+                <i class="fas fa-car" aria-hidden="true"></i>
+                DriveNest
+            </div>
+            <h1 class="hero-tagline">Premium Number Plates for Elite Vehicles</h1>
+            <p class="hero-description">
+                Exclusive VIP auctions and regular registrations. Minimal interface so your focus stays on the plate—and
+                the drive.
+            </p>
+            <a href="#vip-content" class="cta-button">Explore Plates</a>
+        </div>
+
+        <div class="features" aria-label="Key features">
+            <div class="feature">
+                <i class="fas fa-gavel" aria-hidden="true"></i>
+                <div class="feature-title">VIP Auctions</div>
+                <div class="feature-desc">Bid on exclusive plates</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-id-card" aria-hidden="true"></i>
+                <div class="feature-title">Regular Plates</div>
+                <div class="feature-desc">Standard registrations</div>
+            </div>
+            <div class="feature">
+                <i class="fas fa-landmark" aria-hidden="true"></i>
+                <div class="feature-title">Gov Portal</div>
+                <div class="feature-desc">Official services</div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="page-header" aria-labelledby="page-title">
+        <div class="container">
+            <h2 id="page-title" class="page-title">Premium Number Plates</h2>
+            <p class="page-subtitle">Find the perfect number plate—VIP or regular—tailored to your region and style.</p>
+        </div>
+    </section>
+
+
+    <section class="tabs-section" aria-label="Sections">
+        <div class="tabs-container">
+            <div class="tabs" role="tablist" aria-label="Plate sections">
+                <a href="#vip-content" class="tab active" role="tab" aria-selected="true">
+                    <i class="fas fa-gavel" aria-hidden="true"></i>
+                    VIP Plate Auctions
+                </a>
+                <a href="#regular-content" class="tab" role="tab" aria-selected="false">
+                    <i class="fas fa-id-card" aria-hidden="true"></i>
+                    Regular Number Plates
+                </a>
+                <a href="#gov-content" class="tab" role="tab" aria-selected="false">
+                    <i class="fas fa-landmark" aria-hidden="true"></i>
+                    Government Portal
+                </a>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="content-section" id="vip-content" aria-labelledby="vip-title">
+        <div class="container">
+            <h3 id="vip-title" class="section-title">Exclusive VIP Plate Auctions</h3>
+
+            <div class="plate-grid">
+                
+                <div class="plate-card">
+                    <div class="plate-display">
+                        <div class="plate-type">VIP</div>
+                        <div class="plate-number">MH 01 AA 0001</div>
+                    </div>
+                    <div class="plate-info">
+                        <h4 class="plate-title">Premium Single Digit</h4>
+                        <div class="plate-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Current Bid:</span>
+                                <span class="detail-value current-bid">₹5,00,000</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Min. Next Bid:</span>
+                                <span class="detail-value">₹5,25,000</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Bids:</span>
+                                <span class="detail-value">45</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">State:</span>
+                                <span class="detail-value">Maharashtra</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">RTO:</span>
+                                <span class="detail-value">Mumbai Central</span>
+                            </div>
+                        </div>
+                        <div class="plate-actions">
+                            <a href="#" class="btn btn-primary" aria-label="Place Bid for MH 01 AA 0001">
+                                <i class="fas fa-gavel" aria-hidden="true"></i> Place Bid
+                            </a>
+                            <a href="#" class="btn" aria-label="View Details for MH 01 AA 0001">
+                                <i class="fas fa-eye" aria-hidden="true"></i> View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+              
+                <div class="plate-card">
+                    <div class="plate-display">
+                        <div class="plate-type">Lucky</div>
+                        <div class="plate-number">DL 01 CA 0007</div>
+                    </div>
+                    <div class="plate-info">
+                        <h4 class="plate-title">Lucky Number 7</h4>
+                        <div class="plate-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Current Bid:</span>
+                                <span class="detail-value current-bid">₹3,50,000</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Min. Next Bid:</span>
+                                <span class="detail-value">₹3,75,000</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Bids:</span>
+                                <span class="detail-value">32</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">State:</span>
+                                <span class="detail-value">Delhi</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">RTO:</span>
+                                <span class="detail-value">Delhi Central</span>
+                            </div>
+                        </div>
+                        <div class="plate-actions">
+                            <a href="#" class="btn btn-primary" aria-label="Place Bid for DL 01 CA 0007">
+                                <i class="fas fa-gavel" aria-hidden="true"></i> Place Bid
+                            </a>
+                            <a href="#" class="btn" aria-label="View Details for DL 01 CA 0007">
+                                <i class="fas fa-eye" aria-hidden="true"></i> View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="plate-card">
+                    <div class="plate-display">
+                        <div class="plate-type">Repeating</div>
+                        <div class="plate-number">KA 03 MN 1111</div>
+                    </div>
+                    <div class="plate-info">
+                        <h4 class="plate-title">Repeating Digits</h4>
+                        <div class="plate-details">
+                            <div class="detail-row">
+                                <span class="detail-label">Current Bid:</span>
+                                <span class="detail-value current-bid">₹2,75,000</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Min. Next Bid:</span>
+                                <span class="detail-value">₹3,00,000</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Bids:</span>
+                                <span class="detail-value">28</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">State:</span>
+                                <span class="detail-value">Karnataka</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">RTO:</span>
+                                <span class="detail-value">Bangalore East</span>
+                            </div>
+                        </div>
+                        <div class="plate-actions">
+                            <a href="#" class="btn btn-primary" aria-label="Place Bid for KA 03 MN 1111">
+                                <i class="fas fa-gavel" aria-hidden="true"></i> Place Bid
+                            </a>
+                            <a href="#" class="btn" aria-label="View Details for KA 03 MN 1111">
+                                <i class="fas fa-eye" aria-hidden="true"></i> View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+ 
+    <section class="content-section normal-plates" id="regular-content" aria-labelledby="regular-title">
+        <div class="container">
+            <h3 id="regular-title" class="section-title">Find Your Perfect Regular Number Plate</h3>
+
+            <div class="search-section">
+                <h4 style="margin-bottom: 10px; color: var(--charcoal);">Search Available Number Plates</h4>
+
+                Fixed and completed form
+                <form class="search-form" action="#" method="get">
+                    <div class="form-group">
+                        <label for="state">Select Your State</label>
+                        <select id="state" name="state" aria-label="Select state">
+                            <option value="">Choose State</option>
+                            <option value="AN">Andaman and Nicobar Islands (AN)</option>
+                            <option value="AP">Andhra Pradesh (AP)</option>
+                            <option value="AS">Assam (AS)</option>
+                            <option value="BR">Bihar (BR)</option>
+                            <option value="DL">Delhi (DL)</option>
+                            <option value="GJ">Gujarat (GJ)</option>
+                            <option value="KA">Karnataka (KA)</option>
+                            <option value="MH">Maharashtra (MH)</option>
+                            <option value="PB">Punjab (PB)</option>
+                            <option value="RJ">Rajasthan (RJ)</option>
+                            <option value="TN">Tamil Nadu (TN)</option>
+                            <option value="UP">Uttar Pradesh (UP)</option>
+                           
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="series">Series (e.g., AA, CA)</label>
+                        <input id="series" name="series" type="text" placeholder="Enter series" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="digits">Preferred Digits</label>
+                        <input id="digits" name="digits" type="text" placeholder="e.g., 0007, 1111" />
+                    </div>
+
+                    <button type="submit" class="search-btn">Search</button>
+                </form>
+            </div>
+
+           
+            <div class="plate-grid" aria-label="Regular plate examples">
+                <div class="plate-card">
+                    <div class="plate-display">
+                        <div class="plate-type">Regular</div>
+                        <div class="plate-number">MH 12 AB 4567</div>
+                    </div>
+                    <div class="plate-info">
+                        <h4 class="plate-title">Standard Registration</h4>
+                        <div class="plate-details">
+                            <div class="detail-row"><span class="detail-label">State:</span><span
+                                    class="detail-value">Maharashtra</span></div>
+                            <div class="detail-row"><span class="detail-label">RTO:</span><span
+                                    class="detail-value">Pune</span></div>
+                        </div>
+                        <div class="plate-actions">
+                            <a href="underconstruction.html" class="btn"><i class="fas fa-eye" aria-hidden="true"></i>
+                                View</a>
+                            <a href="underconstruction.html" class="btn btn-primary">Apply</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plate-card">
+                    <div class="plate-display">
+                        <div class="plate-type">Regular</div>
+                        <div class="plate-number">DL 03 CD 7890</div>
+                    </div>
+                    <div class="plate-info">
+                        <h4 class="plate-title">Standard Registration</h4>
+                        <div class="plate-details">
+                            <div class="detail-row"><span class="detail-label">State:</span><span
+                                    class="detail-value">Delhi</span></div>
+                            <div class="detail-row"><span class="detail-label">RTO:</span><span
+                                    class="detail-value">South Delhi</span></div>
+                        </div>
+                        <div class="plate-actions">
+                            <a href="underconstruction.html" class="btn"><i class="fas fa-eye" aria-hidden="true"></i>
+                                View</a>
+                            <a href="underconstruction.html" class="btn btn-primary">Apply</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="content-section gov-portal" id="gov-content" aria-labelledby="gov-title">
+        <div class="container">
+            <div class="gov-content">
+                <h3 id="gov-title" class="gov-title">Official Government Portal</h3>
+                <p class="gov-description">
+                    Access official services and verify your registration directly through the government portal links
+                    below.
+                </p>
+                <div class="gov-links" role="list">
+                    <a class="gov-link" href="https://vahan.parivahan.gov.in/nrservices/" role="listitem"><i
+                            class="fas fa-globe" aria-hidden="true"></i> National Vahan Portal</a>
+                    <a class="gov-link" href="https://parivahan.gov.in/parivahan/" role="listitem"><i
+                            class="fas fa-landmark" aria-hidden="true"></i> State Transport</a>
+                    <a class="gov-link" href="https://www.transport.gov.za/?page_id=1155" role="listitem"><i
+                            class="fas fa-shield-alt" aria-hidden="true"></i> Guidelines</a>
+                </div>
+                <p class="note">Note: All external portals open in a new tab and are maintained by their respective
+                    authorities.</p>
+            </div>
+        </div>
+    </section>
+
+  
+    <footer id="contact" aria-label="Footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-car" aria-hidden="true"></i> DriveNest
+            </div>
+            <div class="footer-links">
+                <a class="footer-link" href="#vip-content">VIP Plates</a>
+                <a class="footer-link" href="#regular-content">Regular Plates</a>
+                <a class="footer-link" href="https://vahan.parivahan.gov.in/nrservices/">Gov Portal</a>
+                <a class="footer-link" href="#hero">Top</a>
+            </div>
+            <div class="social-icons" aria-label="Social media">
+                <a class="social-icon" href="#" aria-label="Twitter"><i class="fab fa-x-twitter"
+                        aria-hidden="true"></i></a>
+                <a class="social-icon" href="#" aria-label="Instagram"><i class="fab fa-instagram"
+                        aria-hidden="true"></i></a>
+                <a class="social-icon" href="#" aria-label="Facebook"><i class="fab fa-facebook"
+                        aria-hidden="true"></i></a>
+            </div>
+            <div class="copyright">© <span id="year">2025</span> DriveNest. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+
+</html>

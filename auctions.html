@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive Nest | Premium Car Auctions</title>
+    <meta name="description" content="Drive Nest offers premium luxury car auctions. Bid, win, and drive your dream car today.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg">
+    
+    <style>
+        /* Basic CSS Variables */
+        :root {
+            --bg: #ffffff;
+            --card: #f8f8f8;
+            --glass: rgba(0, 0, 0, 0.05);
+            --text: #000000;
+            --text-secondary: #555555;
+            --primary: #000000;
+            --accent: #000000;
+            --success: #28a745;
+            --warning: #ffc107;
+            --border: rgba(0, 0, 0, 0.1);
+            --shadow: rgba(0, 0, 0, 0.1);
+            --radius: 1rem;
+        }
+        
+        /* Global Styles & Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: var(--primary);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg);
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--bg);
+        }
+        
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+        
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        /* Contact Details */
+        .contact-details {
+            display: none;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .contact-details {
+                display: flex;
+            }
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-toggle {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--radius);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--card);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: var(--radius);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            border: 1px solid var(--border);
+            margin-top: 0.5rem;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            padding: 0.75rem 1rem;
+            color: var(--text);
+            text-decoration: none;
+            transition: background 0.3s;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-item:hover {
+            background: var(--glass);
+        }
+        
+        /* Marquee */
+        .marquee-container {
+            background: var(--primary);
+            color: var(--bg);
+            padding: 0.5rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        
+        .marquee {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+            font-weight: 600;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 4rem 1rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-image: url('Lucid_Origin_sleek_white_McLaren_partially_accented_with_gloss_0.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: 1;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.05) 0%, transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.05) 0%, transparent 30%);
+            z-index: 2;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 3;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .hero-content h1 {
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--text));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-content p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-image-container {
+            position: relative;
+            height: 400px;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+        
+        .live-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: var(--bg);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+        
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--bg);
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .countdown {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 4rem 1rem;
+            background-color: var(--bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        /* Live Auction */
+        .live-auction {
+            background: var(--card);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            border: 1px solid var(--border);
+        }
+        
+        .auction-ticker {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            padding-bottom: 1rem;
+        }
+        
+        .lot-card {
+            flex: 0 0 280px;
+            background: var(--glass);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        
+        .lot-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        
+        .lot-content {
+            padding: 1rem;
+        }
+        
+        .lot-number {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .lot-title {
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+        
+        .lot-price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin: 0.5rem 0;
+        }
+        
+        .lot-details {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.5rem 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Registration Form */
+        .registration {
+            background: var(--card);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        
+        .registration::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/luxury_car_showroom.jpg') center/cover;
+            opacity: 0.05;
+            z-index: -1;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text);
+            font-family: inherit;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        /* Gallery */
+        .filter-tabs {
+            display: flex;
+            overflow-x: auto;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-tab {
+            padding: 0.5rem 1rem;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 2rem;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .filter-tab:hover {
+            border-color: var(--primary);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .car-card {
+            background: var(--card);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        
+        .car-slider {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .slider-container {
+            display: flex;
+            height: 100%;
+        }
+        
+        .slider-image {
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slider-controls {
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+        
+        .slider-dot.active {
+            background: var(--primary);
+        }
+        
+        .car-content {
+            padding: 1.5rem;
+        }
+        
+        .car-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.5rem;
+        }
+        
+        .car-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        
+        .car-year {
+            color: var(--text-secondary);
+        }
+        
+        .car-price {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+        
+        .car-details {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .car-badge {
+            padding: 0.25rem 0.75rem;
+            background: var(--glass);
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            border: 1px solid var(--border);
+        }
+        
+        .car-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .car-actions .btn {
+            flex: 1;
+        }
+        
+        /* Upcoming Auctions */
+        .auctions-timeline {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .auction-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            border: 1px solid var(--border);
+        }
+        
+        .auction-date {
+            text-align: center;
+            background: var(--glass);
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            min-width: 80px;
+        }
+        
+        .auction-day {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .auction-month {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .auction-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        .auction-image {
+            width: 100px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: var(--radius);
+        }
+        
+        /* Dealers Section */
+        .dealers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .dealer-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+        
+        .dealer-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .dealer-logo {
+            width: 60px;
+            height: 60px;
+            background: var(--glass);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .dealer-rating {
+            display: flex;
+            gap: 0.25rem;
+            margin: 0.5rem 0;
+        }
+        
+        .star {
+            color: var(--warning);
+        }
+        
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .testimonial-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .testimonial-content::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.3;
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .trust-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: filter 0.3s, opacity 0.3s;
+        }
+        
+        .trust-badge:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .badge-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--glass);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        /* FAQ */
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--card);
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            padding: 3rem 1rem 1rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--glass);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 767px) {
+            .hero {
+                min-height: 60vh;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .auction-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .auction-image {
+                width: 100%;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo">Drive Nest</div>
+            
+            <!-- Contact Details -->
+            <div class="contact-details">
+                <div class="contact-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.89 2.11l-1.29 1a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.89 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <span>+91 98765 43210</span>
+                </div>
+                <div class="contact-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>info@drivenest.com</span>
+                </div>
+            </div>
+            
+            <!-- Dropdown Menu -->
+            <div class="dropdown">
+                <button class="dropdown-toggle">☰</button>
+                <div class="dropdown-menu">
+                    <a href="#home" class="dropdown-item">Home</a>
+                    <a href="#live-auction" class="dropdown-item">Live Auction</a>
+                    <a href="#upcoming" class="dropdown-item">Upcoming</a>
+                    <a href="#dealers" class="dropdown-item">Dealers</a>
+                    <a href="#gallery" class="dropdown-item">Gallery</a>
+                    <a href="#faq" class="dropdown-item">FAQ</a>
+                    <a href="#contact" class="dropdown-item">Contact</a>
+                    <a href="#registration" class="dropdown-item">Register</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <div class="marquee">
+            🚗 LUXURY CAR AUCTIONS LIVE NOW • PREMIUM VEHICLES AT UNBEATABLE PRICES • REGISTER TODAY FOR EXCLUSIVE ACCESS • BID. WIN. DRIVE. 🚗
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main id="main">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>Bid. Win. Drive.</h1>
+                    <p>Experience the thrill of premium car auctions. From luxury sedans to high-performance sports cars and popular Indian SUVs, find your dream vehicle at Drive Nest.</p>
+                    <div class="hero-buttons">
+                        <a href="#live-auction" class="btn btn-primary">Join Live Auction</a>
+                        <a href="#gallery" class="btn btn-secondary">View Catalog</a>
+                    </div>
+                </div>
+                <div class="hero-image-container">
+                    <img src="Lucid_Origin_sleek_white_McLaren_partially_accented_with_gloss_0.jpg" alt="Featured luxury car" class="hero-image">
+                    <div class="live-badge">
+                        <span class="live-dot"></span>
+                        Live Now
+                    </div>
+                    <div class="countdown">Ends in: 02:15:32</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Live Auction Section -->
+        <section class="live-auction" id="live-auction">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Live Auction</h2>
+                    <p>Bid on these premium vehicles before time runs out</p>
+                </div>
+                <div class="auction-ticker">
+                    <!-- Indian Car: Hyundai Creta -->
+                    <div class="lot-card">
+                        <img src="hyundai-creta-right-front-three-quarter9.avif" alt="Hyundai Creta" class="lot-image">
+                        <div class="lot-content">
+                            <div class="lot-number">Lot #1253</div>
+                            <h3 class="lot-title">Hyundai Creta SX (O) Turbo</h3>
+                            <div class="lot-price">₹18,50,000</div>
+                            <div class="lot-details">
+                                <span>25 bids</span>
+                                <span>1h 15m left</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Indian Car: Tata Nexon -->
+                    <div class="lot-card">
+                        <img src="nex.avif" alt="Tata Nexon" class="lot-image">
+                        <div class="lot-content">
+                            <div class="lot-number">Lot #1254</div>
+                            <h3 class="lot-title">Tata Nexon XZ+ (S)</h3>
+                            <div class="lot-price">₹12,75,000</div>
+                            <div class="lot-details">
+                                <span>18 bids</span>
+                                <span>2h 30m left</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Indian Car: Mahindra XUV700 -->
+                    <div class="lot-card">
+                        <img src="mx.1avif.avif" alt="Mahindra XUV700" class="lot-image">
+                        <div class="lot-content">
+                            <div class="lot-number">Lot #1255</div>
+                            <h3 class="lot-title">Mahindra XUV700 AX7</h3>
+                            <div class="lot-price">₹22,50,000</div>
+                            <div class="lot-details">
+                                <span>32 bids</span>
+                                <span>45m left</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Indian Car: Kia Seltos -->
+                    <div class="lot-card">
+                        <img src="c11.jpg" alt="Kia Seltos" class="lot-image">
+                        <div class="lot-content">
+                            <div class="lot-number">Lot #1256</div>
+                            <h3 class="lot-title">Kia Seltos GTX+ (O)</h3>
+                            <div class="lot-price">₹19,25,000</div>
+                            <div class="lot-details">
+                                <span>21 bids</span>
+                                <span>1h 45m left</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Luxury Car: BMW M5 Competition -->
+                    <div class="lot-card">
+                        <img src="bmw.jph.jpg" alt="BMW M5 Competition" class="lot-image">
+                        <div class="lot-content">
+                            <div class="lot-number">Lot #1247</div>
+                            <h3 class="lot-title">BMW M5 Competition</h3>
+                            <div class="lot-price">₹1,85,00,000</div>
+                            <div class="lot-details">
+                                <span>12 bids</span>
+                                <span>2h 15m left</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Luxury Car: Mercedes-Benz S-Class -->
+                    <div class="lot-card">
+                        <img src="mercedes.jpg" alt="Mercedes-Benz S-Class" class="lot-image">
+                        <div class="lot-content">
+                            <div class="lot-number">Lot #1248</div>
+                            <h3 class="lot-title">Mercedes-Benz S-Class</h3>
+                            <div class="lot-price">₹1,65,00,000</div>
+                            <div class="lot-details">
+                                <span>8 bids</span>
+                                <span>1h 45m left</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Registration Section -->
+        <section id="registration">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Register to Bid</h2>
+                    <p>Create your account to start bidding on premium vehicles</p>
+                </div>
+                <div class="registration">
+                    <div class="form-header">
+                        <h2>Join Drive Nest</h2>
+                        <p>Register now to access exclusive auctions and premium vehicles</p>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" required placeholder="9876543210">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" required placeholder="Your city">
+                        </div>
+                        <div class="form-group">
+                            <label for="segment">Preferred Segment</label>
+                            <select id="segment" required>
+                                <option value="">Select a segment</option>
+                                <option value="luxury">Luxury Sedans</option>
+                                <option value="sports">Sports Cars</option>
+                                <option value="suv">SUVs</option>
+                                <option value="compact">Compact SUVs</option>
+                                <option value="electric">Electric Vehicles</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Budget Range</label>
+                            <select id="budget" required>
+                                <option value="">Select budget range</option>
+                                <option value="10l">Up to ₹10 Lakhs</option>
+                                <option value="20l">₹10 - ₹20 Lakhs</option>
+                                <option value="50l">₹20 - ₹50 Lakhs</option>
+                                <option value="1cr">₹50 Lakhs - ₹1 Crore</option>
+                                <option value="2cr">Above ₹1 Crore</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Register Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Premium Collection</h2>
+                    <p>Explore our curated selection of luxury vehicles and popular Indian cars</p>
+                </div>
+                
+                <div class="filter-tabs">
+                    <div class="filter-tab">All</div>
+                    <div class="filter-tab">Hyundai</div>
+                    <div class="filter-tab">Tata</div>
+                    <div class="filter-tab">Mahindra</div>
+                    <div class="filter-tab">Kia</div>
+                    <div class="filter-tab">BMW</div>
+                    <div class="filter-tab">Mercedes</div>
+                </div>
+                
+                <div class="gallery-grid">
+                    <!-- Indian Car Card 1: Hyundai Creta -->
+                    <div class="car-card">
+                        <div class="car-slider">
+                            <div class="slider-container">
+                                <img src="hyundai-creta-right-front-three-quarter9.avif" alt="Hyundai Creta" class="slider-image">
+                            </div>
+                            <div class="slider-controls">
+                                <div class="slider-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="car-content">
+                            <div class="car-header">
+                                <div>
+                                    <h3 class="car-title">Hyundai Creta</h3>
+                                    <div class="car-year">2023</div>
+                                </div>
+                            </div>
+                            <div class="car-price">₹18,50,000</div>
+                            <div class="car-details">
+                                <span class="car-badge">Petrol</span>
+                                <span class="car-badge">Automatic</span>
+                                <span class="car-badge">5,000 km</span>
+                            </div>
+                            <div class="car-actions">
+                                <a href="#" class="btn btn-secondary">View Details</a>
+                                <a href="#" class="btn btn-primary">Contact Dealer</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Indian Car Card 2: Tata Nexon -->
+                    <div class="car-card">
+                        <div class="car-slider">
+                            <div class="slider-container">
+                                <img src="nex.avif" alt="Tata Nexon" class="slider-image">
+                            </div>
+                            <div class="slider-controls">
+                                <div class="slider-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="car-content">
+                            <div class="car-header">
+                                <div>
+                                    <h3 class="car-title">Tata Nexon</h3>
+                                    <div class="car-year">2023</div>
+                                </div>
+                            </div>
+                            <div class="car-price">₹12,75,000</div>
+                            <div class="car-details">
+                                <span class="car-badge">Diesel</span>
+                                <span class="car-badge">Manual</span>
+                                <span class="car-badge">7,500 km</span>
+                            </div>
+                            <div class="car-actions">
+                                <a href="#" class="btn btn-secondary">View Details</a>
+                                <a href="#" class="btn btn-primary">Contact Dealer</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Indian Car Card 3: Mahindra XUV700 -->
+                    <div class="car-card">
+                        <div class="car-slider">
+                            <div class="slider-container">
+                                <img src="mx.1avif.avif" alt="Mahindra XUV700" class="slider-image">
+                            </div>
+                            <div class="slider-controls">
+                                <div class="slider-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="car-content">
+                            <div class="car-header">
+                                <div>
+                                    <h3 class="car-title">Mahindra XUV700</h3>
+                                    <div class="car-year">2023</div>
+                                </div>
+                            </div>
+                            <div class="car-price">₹22,50,000</div>
+                            <div class="car-details">
+                                <span class="car-badge">Petrol</span>
+                                <span class="car-badge">Automatic</span>
+                                <span class="car-badge">3,000 km</span>
+                            </div>
+                            <div class="car-actions">
+                                <a href="#" class="btn btn-secondary">View Details</a>
+                                <a href="#" class="btn btn-primary">Contact Dealer</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Indian Car Card 4: Kia Seltos -->
+                    <div class="car-card">
+                        <div class="car-slider">
+                            <div class="slider-container">
+                                <img src="ma18.jpg" alt="Kia Seltos" class="slider-image">
+                            </div>
+                            <div class="slider-controls">
+                                <div class="slider-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="car-content">
+                            <div class="car-header">
+                                <div>
+                                    <h3 class="car-title">Kia Seltos</h3>
+                                    <div class="car-year">2023</div>
+                                </div>
+                            </div>
+                            <div class="car-price">₹19,25,000</div>
+                            <div class="car-details">
+                                <span class="car-badge">Petrol</span>
+                                <span class="car-badge">Automatic</span>
+                                <span class="car-badge">4,500 km</span>
+                            </div>
+                            <div class="car-actions">
+                                <a href="#" class="btn btn-secondary">View Details</a>
+                                <a href="#" class="btn btn-primary">Contact Dealer</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Luxury Car Card 5: BMW 7 Series -->
+                    <div class="car-card">
+                        <div class="car-slider">
+                            <div class="slider-container">
+                                <img src="bmw.jph.jpg" alt="BMW 7 Series" class="slider-image">
+                            </div>
+                            <div class="slider-controls">
+                                <div class="slider-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="car-content">
+                            <div class="car-header">
+                                <div>
+                                    <h3 class="car-title">BMW 7 Series</h3>
+                                    <div class="car-year">2023</div>
+                                </div>
+                            </div>
+                            <div class="car-price">₹1,65,00,000</div>
+                            <div class="car-details">
+                                <span class="car-badge">Petrol</span>
+                                <span class="car-badge">Automatic</span>
+                                <span class="car-badge">15,000 km</span>
+                            </div>
+                            <div class="car-actions">
+                                <a href="#" class="btn btn-secondary">View Details</a>
+                                <a href="#" class="btn btn-primary">Contact Dealer</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Luxury Car Card 6: Mercedes-Benz S-Class -->
+                    <div class="car-card">
+                        <div class="car-slider">
+                            <div class="slider-container">
+                                <img src="mercedes.jpg" alt="Mercedes-Benz S-Class" class="slider-image">
+                            </div>
+                            <div class="slider-controls">
+                                <div class="slider-dot active"></div>
+                            </div>
+                        </div>
+                        <div class="car-content">
+                            <div class="car-header">
+                                <div>
+                                    <h3 class="car-title">Mercedes-Benz S-Class</h3>
+                                    <div class="car-year">2023</div>
+                                </div>
+                            </div>
+                            <div class="car-price">₹1,85,00,000</div>
+                            <div class="car-details">
+                                <span class="car-badge">Diesel</span>
+                                <span class="car-badge">Automatic</span>
+                                <span class="car-badge">8,000 km</span>
+                            </div>
+                            <div class="car-actions">
+                                <a href="#" class="btn btn-secondary">View Details</a>
+                                <a href="#" class="btn btn-primary">Contact Dealer</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Upcoming Auctions Section -->
+        <section id="upcoming">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Upcoming Auctions</h2>
+                    <p>Mark your calendar for these exclusive events</p>
+                </div>
+                
+                <div class="auctions-timeline">
+                    <div class="auction-card">
+                        <div class="auction-date">
+                            <div class="auction-day">15</div>
+                            <div class="auction-month">JUL</div>
+                        </div>
+                        <div class="auction-info">
+                            <h3>Popular SUV Showcase</h3>
+                            <div class="auction-location">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                Mumbai
+                            </div>
+                        </div>
+                        <img src="h2.jpg" alt="Featured SUV" class="auction-image">
+                        <a href="#registration" class="btn btn-primary">Set Reminder</a>
+                    </div>
+                    
+                    <div class="auction-card">
+                        <div class="auction-date">
+                            <div class="auction-day">22</div>
+                            <div class="auction-month">JUL</div>
+                        </div>
+                        <div class="auction-info">
+                            <h3>Luxury Sedans & Sports Cars</h3>
+                            <div class="auction-location">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                Delhi
+                            </div>
+                        </div>
+                        <img src="mercedes.jpg" alt="Featured luxury car" class="auction-image">
+                        <a href="#registration" class="btn btn-primary">Set Reminder</a>
+                    </div>
+                    
+                    <div class="auction-card">
+                        <div class="auction-date">
+                            <div class="auction-day">05</div>
+                            <div class="auction-month">AUG</div>
+                        </div>
+                        <div class="auction-info">
+                            <h3>Electric Vehicles Special</h3>
+                            <div class="auction-location">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                Bangalore
+                            </div>
+                        </div>
+                        <img src="ma14.jpg" alt="Featured electric car" class="auction-image">
+                        <a href="#registration" class="btn btn-primary">Set Reminder</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Dealers Section -->
+        <section id="dealers">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Verified Dealers</h2>
+                    <p>Connect with our trusted partners</p>
+                </div>
+                
+                <div class="dealers-grid">
+                    <div class="dealer-card">
+                        <div class="dealer-header">
+                            <div class="dealer-logo">🏢</div>
+                            <div class="dealer-info">
+                                <h3>AMG Motors</h3>
+                                <div class="dealer-location">Mumbai, Maharashtra</div>
+                            </div>
+                        </div>
+                        <div class="dealer-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <a href="#gallery" class="btn btn-primary">View Inventory</a>
+                    </div>
+                    
+                    <div class="dealer-card">
+                        <div class="dealer-header">
+                            <div class="dealer-logo">🚗</div>
+                            <div class="dealer-info">
+                                <h3>CHITKARA Gallery</h3>
+                                <div class="dealer-location">Delhi, NCR</div>
+                            </div>
+                        </div>
+                        <div class="dealer-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <a href="#gallery" class="btn btn-primary">View Inventory</a>
+                    </div>
+                    
+                    <div class="dealer-card">
+                        <div class="dealer-header">
+                            <div class="dealer-logo">🏁</div>
+                            <div class="dealer-info">
+                                <h3>FUSION Cars</h3>
+                                <div class="dealer-location">Bangalore, Karnataka</div>
+                            </div>
+                        </div>
+                        <div class="dealer-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                        </div>
+                        <a href="#gallery" class="btn btn-primary">View Inventory</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Find answers to common questions about our auctions</p>
+                </div>
+                
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question">How do I register for an auction?</button>
+                        <div class="faq-answer">
+                            To register for an auction, simply fill out our registration form with your details. Once submitted, you'll receive a confirmation email with further instructions. You'll need to provide proof of identity and address to complete the registration process.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">What payment methods are accepted?</button>
+                        <div class="faq-answer">
+                            We accept various payment methods including bank transfers, credit/debit cards, and digital wallets. For high-value transactions, we also offer escrow services to ensure secure payment processing for both buyers and sellers.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">Can I inspect the vehicle before bidding?</button>
+                        <div class="faq-answer">
+                            Yes, we encourage all potential bidders to inspect vehicles before placing bids. You can schedule an appointment to view the vehicle in person or request a detailed inspection report. We also provide comprehensive photos and videos of each vehicle.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            
+            
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#live-auction">Live Auction</a></li>
+                    <li><a href="#upcoming">Upcoming Auctions</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#dealers">Dealers</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Drive Nest Headquarters</p>
+                <p>123 Luxury Lane, Mumbai, Maharashtra 400001</p>
+                <p>Phone: +91 98765 43210</p>
+                <p>Email: info@drivenest.com</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Drive Nest. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
