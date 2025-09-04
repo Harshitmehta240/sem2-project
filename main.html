@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DriveNext - Luxury Car Experience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Reset and Base Styles */
         * {
@@ -36,6 +37,7 @@
             z-index: 9999;
             overflow: hidden;
             background-color: #000;
+            animation: fadeOut 5s forwards;
         }
         
         .video-entry video {
@@ -61,6 +63,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
         
         .video-logo {
@@ -71,6 +74,7 @@
             color: var(--secondary);
             margin-bottom: 1rem;
             animation: pulse 2s infinite;
+            text-align: center;
         }
         
         .video-subtitle {
@@ -79,6 +83,7 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--secondary);
+            text-align: center;
         }
         
         @keyframes pulse {
@@ -87,15 +92,10 @@
             100% { opacity: 0.7; }
         }
         
-        /* Hide video entry after animation */
-        .video-entry.hidden {
-            animation: fadeOut 1s forwards;
-            animation-delay: 4s;
-        }
-        
         @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; visibility: hidden; }
+            0% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
         }
         
         /* Navigation Bar */
@@ -104,7 +104,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 15px 50px;
+            padding: 15px 20px;
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
@@ -190,6 +190,14 @@
             border-bottom: none;
         }
         
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
         /* Hero Section */
         .hero {
             position: relative;
@@ -229,6 +237,7 @@
             z-index: 1;
             padding: 2rem;
             color: var(--secondary);
+            max-width: 90%;
         }
         
         .hero-title {
@@ -276,7 +285,7 @@
         
         /* Section Styles */
         .section {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -287,6 +296,7 @@
             background-attachment: fixed;
             opacity: 0;
             animation: fadeIn 1s forwards;
+            padding: 60px 20px;
         }
         
         .section:nth-child(odd) {
@@ -314,6 +324,7 @@
             max-width: 800px;
             padding: 2rem;
             color: var(--secondary);
+            width: 100%;
         }
         
         .section-title {
@@ -465,6 +476,7 @@
             width: 100%;
             max-width: 500px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
         }
         
         .form-group {
@@ -526,7 +538,7 @@
         
         /* Auction Section */
         .auction-section {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -539,6 +551,7 @@
             opacity: 0;
             animation: fadeIn 1s forwards;
             animation-delay: 5.8s;
+            padding: 60px 20px;
         }
         
         .auction-section::before {
@@ -555,9 +568,10 @@
         .auction-content {
             text-align: center;
             z-index: 1;
-            max-width: 800px;
+            max-width: 1200px;
             padding: 2rem;
             color: var(--secondary);
+            width: 100%;
         }
         
         .auction-grid {
@@ -626,7 +640,7 @@
         
         /* Number Plates Section */
         .numberplates-section {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -639,6 +653,7 @@
             opacity: 0;
             animation: fadeIn 1s forwards;
             animation-delay: 6s;
+            padding: 60px 20px;
         }
         
         .numberplates-section::before {
@@ -655,9 +670,10 @@
         .numberplates-content {
             text-align: center;
             z-index: 1;
-            max-width: 800px;
+            max-width: 1200px;
             padding: 2rem;
             color: var(--secondary);
+            width: 100%;
         }
         
         .plate-grid {
@@ -711,7 +727,7 @@
         .footer {
             background-color: var(--primary);
             color: var(--secondary);
-            padding: 30px 0;
+            padding: 30px 20px;
             text-align: center;
             opacity: 0;
             animation: fadeIn 1s forwards;
@@ -722,41 +738,144 @@
             margin-bottom: 10px;
         }
         
-       
+        /* Responsive Styles */
         @media (max-width: 768px) {
             .navbar {
                 padding: 15px 20px;
             }
             
             .video-logo {
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+            
+            .video-subtitle {
+                font-size: 1rem;
             }
             
             .hero-title {
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .menu-toggle {
+                display: block;
             }
             
             .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .menu-toggle:checked ~ .nav-links {
+                transform: translateY(0);
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .dropdown {
+                position: static;
+                width: 100%;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: transparent;
                 display: none;
+                text-align: center;
+                padding-top: 10px;
+            }
+            
+            .nav-links li:hover .dropdown {
+                display: block;
+            }
+            
+            .dropdown li {
+                padding: 5px 0;
             }
             
             .section-title {
                 font-size: 2rem;
             }
             
+            .section-text {
+                font-size: 1rem;
+            }
+            
             .section {
                 background-attachment: scroll;
+                min-height: auto;
+                padding: 40px 20px;
             }
             
             .auction-section, .numberplates-section {
                 background-attachment: scroll;
+                min-height: auto;
+                padding: 40px 20px;
+            }
+            
+            .car-grid, .founders-grid, .auction-grid, .plate-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .booking-form {
+                padding: 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-item {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .video-logo {
+                font-size: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-text {
+                font-size: 0.9rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Video Entry Page -->
-    <div class="video-entry" id="videoEntry">
+    <div class="video-entry">
         <video autoplay muted playsinline>
             <source src="vecteezy_3d-rendered-super-car-cinematic-front-view-in-dark_34634291.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -766,13 +885,17 @@
             <p class="video-subtitle">Redefining Luxury Mobility</p>
         </div>
     </div>
-
+    
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="logo">
             <i class="fas fa-car"></i>
             DRIVENEST
         </div>
+        <input type="checkbox" id="menuToggle" class="menu-toggle">
+        <label for="menuToggle" class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </label>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li>
@@ -795,7 +918,7 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-
+    
     <!-- Hero Section -->
     <section class="hero" id="home">
         <img src="1646293-3840x2160-desktop-4k-land-rover-defender-background.jpg" alt="Luxury Car" class="hero-background">
@@ -808,7 +931,7 @@
             <i class="fas fa-chevron-down"></i>
         </div>
     </section>
-
+    
     <!-- Section 1: About -->
     <section class="section section1" id="about">
         <div class="section-content">
@@ -821,7 +944,7 @@
             <a href="#cars" class="btn">Explore Our Fleet</a>
         </div>
     </section>
-
+    
     <!-- Section 2: Cars -->
     <section class="section section2" id="cars">
         <div class="section-content">
@@ -864,7 +987,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Section 3: Founders -->
     <section class="section section3" id="founders">
         <div class="section-content">
@@ -899,7 +1022,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Section 4: Booking -->
     <section class="section section4" id="booking">
         <div class="section-content">
@@ -934,7 +1057,7 @@
             </form>
         </div>
     </section>
-
+    
     <!-- Section 5: Contact -->
     <section class="section section5" id="contact">
         <div class="section-content">
@@ -969,96 +1092,91 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Auction Section -->
-<section class="auction-section" id="auction">
-    <div class="auction-content">
-        <h2 class="section-title">Indian Car Auctions</h2>
-        <p class="section-text">
-            Bid on popular Indian cars from the comfort of your home. Our auctions feature verified vehicles with transparent pricing.
-        </p>
-        <div class="auction-grid">
-
-            <!-- Maruti Suzuki Swift -->
-            <div class="auction-card">
-                <img src="sc1.jpg" 
-                     alt="Maruti Suzuki Swift" class="auction-image">
-                <div class="auction-info">
-                    <h3 class="auction-title">Maruti Suzuki Swift</h3>
-                    <div class="auction-details">
-                        <span>2021 Model</span>
-                        <span>20,000 km</span>
+    <section class="auction-section" id="auction">
+        <div class="auction-content">
+            <h2 class="section-title">Indian Car Auctions</h2>
+            <p class="section-text">
+                Bid on popular Indian cars from the comfort of your home. Our auctions feature verified vehicles with transparent pricing.
+            </p>
+            <div class="auction-grid">
+                <!-- Maruti Suzuki Swift -->
+                <div class="auction-card">
+                    <img src="sc1.jpg" 
+                         alt="Maruti Suzuki Swift" class="auction-image">
+                    <div class="auction-info">
+                        <h3 class="auction-title">Maruti Suzuki Swift</h3>
+                        <div class="auction-details">
+                            <span>2021 Model</span>
+                            <span>20,000 km</span>
+                        </div>
+                        <div class="auction-price">Current Bid: ₹6.5 Lakh</div>
+                        <div class="auction-timer">
+                            <i class="fas fa-clock"></i>
+                            <span>2 days left</span>
+                        </div>
+                        <a href="auctions.html" class="btn">Place Bid</a>
                     </div>
-                    <div class="auction-price">Current Bid: ₹6.5 Lakh</div>
-                    <div class="auction-timer">
-                        <i class="fas fa-clock"></i>
-                        <span>2 days left</span>
+                </div>
+                <!-- Tata Nexon -->
+                <div class="auction-card">
+                    <img src="nex1.jpg" 
+                         alt="Tata Nexon" class="auction-image">
+                    <div class="auction-info">
+                        <h3 class="auction-title">Tata Nexon</h3>
+                        <div class="auction-details">
+                            <span>2020 Model</span>
+                            <span>15,000 km</span>
+                        </div>
+                        <div class="auction-price">Current Bid: ₹9.2 Lakh</div>
+                        <div class="auction-timer">
+                            <i class="fas fa-clock"></i>
+                            <span>1 day left</span>
+                        </div>
+                        <a href="auctions.html" class="btn">Place Bid</a>
                     </div>
-                    <a href="auctions.html" class="btn">Place Bid</a>
+                </div>
+                <!-- Mahindra Thar -->
+                <div class="auction-card">
+                    <img src="sc1.jpg" 
+                         alt="Mahindra Thar" class="auction-image">
+                    <div class="auction-info">
+                        <h3 class="auction-title">Scorpio</h3>
+                        <div class="auction-details">
+                            <span>2022 Model</span>
+                            <span>10,000 km</span>
+                        </div>
+                        <div class="auction-price">Current Bid: ₹14.5 Lakh</div>
+                        <div class="auction-timer">
+                            <i class="fas fa-clock"></i>
+                            <span>3 days left</span>
+                        </div>
+                        <a href="auctions.html" class="btn">Place Bid</a>
+                    </div>
+                </div>
+                <!-- Hyundai Creta -->
+                <div class="auction-card">
+                    <img src="c8.jpg" 
+                         alt="Hyundai Creta" class="auction-image">
+                    <div class="auction-info">
+                        <h3 class="auction-title">Hyundai Creta</h3>
+                        <div class="auction-details">
+                            <span>2019 Model</span>
+                            <span>30,000 km</span>
+                        </div>
+                        <div class="auction-price">Current Bid: ₹11.8 Lakh</div>
+                        <div class="auction-timer">
+                            <i class="fas fa-clock"></i>
+                            <span>5 days left</span>
+                        </div>
+                        <a href="auctions.html" class="btn">Place Bid</a>
+                    </div>
                 </div>
             </div>
-
-            <!-- Tata Nexon -->
-            <div class="auction-card">
-                <img src="nex1.jpg" 
-                     alt="Tata Nexon" class="auction-image">
-                <div class="auction-info">
-                    <h3 class="auction-title">Tata Nexon</h3>
-                    <div class="auction-details">
-                        <span>2020 Model</span>
-                        <span>15,000 km</span>
-                    </div>
-                    <div class="auction-price">Current Bid: ₹9.2 Lakh</div>
-                    <div class="auction-timer">
-                        <i class="fas fa-clock"></i>
-                        <span>1 day left</span>
-                    </div>
-                    <a href="auctions.html" class="btn">Place Bid</a>
-                </div>
-            </div>
-
-            <!-- Mahindra Thar -->
-            <div class="auction-card">
-                <img src="sc1.jpg" 
-                     alt="Mahindra Thar" class="auction-image">
-                <div class="auction-info">
-                    <h3 class="auction-title">Scorpio</h3>
-                    <div class="auction-details">
-                        <span>2022 Model</span>
-                        <span>10,000 km</span>
-                    </div>
-                    <div class="auction-price">Current Bid: ₹14.5 Lakh</div>
-                    <div class="auction-timer">
-                        <i class="fas fa-clock"></i>
-                        <span>3 days left</span>
-                    </div>
-                    <a href="auctions.html" class="btn">Place Bid</a>
-                </div>
-            </div>
-
-            <!-- Hyundai Creta -->
-            <div class="auction-card">
-                <img src="c8.jpg" 
-                     alt="Hyundai Creta" class="auction-image">
-                <div class="auction-info">
-                    <h3 class="auction-title">Hyundai Creta</h3>
-                    <div class="auction-details">
-                        <span>2019 Model</span>
-                        <span>30,000 km</span>
-                    </div>
-                    <div class="auction-price">Current Bid: ₹11.8 Lakh</div>
-                    <div class="auction-timer">
-                        <i class="fas fa-clock"></i>
-                        <span>5 days left</span>
-                    </div>
-                    <a href="auctions.html" class="btn">Place Bid</a>
-                </div>
-            </div>
-
         </div>
-    </div>
-</section>
-
+    </section>
+    
     <!-- Number Plates Section -->
     <section class="numberplates-section" id="numberplates">
         <div class="numberplates-content">
@@ -1118,21 +1236,11 @@
             <a href="number-plates.html" class="btn" style="margin-top: 30px;">View All Number Plates</a>
         </div>
     </section>
-
+    
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2025DriveNest. All rights reserved.</p>
+        <p>&copy; 2025 DriveNest. All rights reserved.</p>
         <p>Experience the pinnacle of automotive excellence</p>
-       
     </footer>
-
-    <script>
-        // Auto-hide video entry after 5 seconds
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('videoEntry').classList.add('hidden');
-            }, 1000);
-        });
-    </script>
 </body>
 </html>
