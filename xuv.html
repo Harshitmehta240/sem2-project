@@ -6,19 +6,18 @@
     <title>Car Museum - Premium Automotive Experience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         :root {
             --primary: #000000;
             --secondary: #ffffff;
             --accent: #FF6B00;
             --gray: #f5f5f5;
             --section-bg: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
@@ -29,7 +28,7 @@
             line-height: 1.6;
         }
         
-        /* Navigation Bar */
+       
         .navbar {
             position: fixed;
             top: 0;
@@ -119,7 +118,7 @@
             border-bottom: none;
         }
         
-        /* Hero Section */
+        
         .hero {
             position: relative;
             height: 100vh;
@@ -194,7 +193,7 @@
             }
         }
         
-        /* Main Content */
+        
         .main-content {
             padding: 100px 0 50px;
             background-color: var(--section-bg);
@@ -233,7 +232,7 @@
             background-color: var(--accent);
         }
         
-        /* Car Grid */
+        
         .car-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -298,7 +297,7 @@
             color: #666;
         }
         
-        /* Footer */
+       
         .footer {
             background-color: var(--primary);
             color: var(--secondary);
@@ -331,7 +330,7 @@
             background-color: var(--accent);
         }
         
-        /* Responsive Design */
+        
         @media (max-width: 768px) {
             .navbar {
                 padding: 15px 20px;
@@ -375,7 +374,7 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+   
     <nav class="navbar">
         <div class="logo">
             <i class="fas fa-car"></i>
@@ -392,7 +391,6 @@
                     <li><a href="#hyundai">Hyundai</a></li>
                     <li><a href="#toyota">Toyota</a></li>
                     <li><a href="#honda">Honda</a></li>
-                    
                 </ul>
             </li>
             <li><a href="#about">About</a></li>
@@ -400,7 +398,7 @@
         </ul>
     </nav>
     
-    <!-- Hero Section -->
+    
     <section class="hero" id="home">
         <div class="hero-content">
             <h1 class="hero-title">CAR MUSEUM</h1>
@@ -411,870 +409,866 @@
         </div>
     </section>
     
-    <!-- Main Content -->
+
     <div class="main-content">
         <div class="container">
-            <!-- Tata Section -->
+          
             <div class="brand-section bg-section-1" id="tata">
-    <h2 class="brand-title">Tata Motors</h2>
-    <div class="car-grid">
-        <!-- Tata Cars -->
-        <div class="car-card">
-            <img src="t1.avif" alt="Tata Safari" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Safari</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹15.65 - 24.05 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Diesel</span>
+                <h2 class="brand-title">Tata Motors</h2>
+                <div class="car-grid">
+                    
+                    <div class="car-card">
+                        <img src="t1.avif" alt="Tata Safari" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Safari</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹15.65 - 24.05 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t2.avif" alt="Tata Harrier" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Harrier</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹14.65 - 22.85 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t3.avif" alt="Tata Nexon" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Nexon</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹7.80 - 14.08 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t4.avif" alt="Tata Punch" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Punch</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹5.93 - 9.18 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/CNG</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t5.avif" alt="Tata Altroz" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Altroz</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹6.20 - 10.00 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t6.avif" alt="Tata Tiago" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Tiago</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹5.54 - 8.05 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/CNG</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t7.avif" alt="Tata Tigor" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Tigor</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹6.00 - 9.00 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/CNG</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t8.avif" alt="Tata Nexon EV" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Nexon EV</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹14.49 - 17.19 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Electric</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t9.avif" alt="Tata Tiago EV" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Tiago EV</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹8.69 - 12.04 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Electric</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t10.avif" alt="Tata Curvv" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Curvv</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹10.00 - 18.00 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t11.avif" alt="Tata Sierra" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Sierra</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹25.00 - 30.00 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Electric</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t12.avif" alt="Tata Harrier EV" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Harrier EV</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹20.00 - 25.00 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Electric</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t13.avif" alt="Tata Safari EV" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Safari EV</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹25.00 - 30.00 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Electric</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t14.avif" alt="Tata Altroz Racer" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Altroz Racer</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹9.50 - 11.00 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="t15.avif" alt="Tata Xenon" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Xenon</h3>
+                            <p class="car-brand">Tata</p>
+                            <div class="car-price">₹10.00 - 12.00 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="t2.avif" alt="Tata Harrier" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Harrier</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹14.65 - 22.85 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="t3.avif" alt="Tata Nexon" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Nexon</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹7.80 - 14.08 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="t4.avif" alt="Tata Punch" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Punch</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹5.93 - 9.18 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/CNG</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="t5.avif" alt="Tata Altroz" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Altroz</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹6.20 - 10.00 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="t6.avif" alt="Tata Tiago" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Tiago</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹5.54 - 8.05 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/CNG</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="t7.avif" alt="Tata Tigor" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Tigor</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹6.00 - 9.00 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/CNG</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="t8.avif" alt="Tata Nexon EV" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Nexon EV</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹14.49 - 17.19 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Electric</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="t9.avif" alt="Tata Tiago EV" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Tiago EV</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹8.69 - 12.04 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Electric</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="t10.avif" alt="Tata Curvv" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Curvv</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹10.00 - 18.00 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="t11.avif" alt="Tata Sierra" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Sierra</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹25.00 - 30.00 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Electric</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="t12.avif" alt="Tata Harrier EV" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Harrier EV</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹20.00 - 25.00 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Electric</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="t13.avif" alt="Tata Safari EV" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Safari EV</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹25.00 - 30.00 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Electric</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="t14.avif" alt="Tata Altroz Racer" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Altroz Racer</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹9.50 - 11.00 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol</span>
-                </div>
-            </div>
-        </div>
-        <div class="car-card">
-            <img src="t15.avif" alt="Tata Xenon" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Xenon</h3>
-                <p class="car-brand">Tata</p>
-                <div class="car-price">₹10.00 - 12.00 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-          <!-- Mahindra Section -->
-<div class="brand-section bg-section-2" id="mahindra">
-    <h2 class="brand-title">Mahindra</h2>
-    <div class="car-grid">
-        <!-- Mahindra Cars -->
-        <div class="car-card">
-            <img src="ma1.jpg" alt="Mahindra XUV700" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">XUV700</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹13.45 - 25.48 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ma2.jpg" alt="Mahindra Thar" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Thar</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹10.54 - 16.77 Lakh</div>
-                <div class="car-details">
-                    <span>4/7 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ma3.jpg" alt="Mahindra Scorpio N" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Scorpio N</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹11.99 - 23.90 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ma4.jpg" alt="Mahindra XUV300" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">XUV300</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹7.99 - 14.56 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ma5.jpg" alt="Mahindra XUV400" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">XUV400</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹15.99 - 18.99 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Electric</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ma6.jpg" alt="Mahindra Bolero" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Bolero</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹9.78 - 10.79 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ma7.jpg" alt="Mahindra Bolero Neo" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Bolero Neo</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹9.63 - 12.14 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ma18.jpg" alt="Mahindra Marazzo" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Marazzo</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹13.17 - 15.50 Lakh</div>
-                <div class="car-details">
-                    <span>7/8 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ma9.jpg" alt="Mahindra KUV100" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">KUV100</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹5.54 - 7.56 Lakh</div>
-                <div class="car-details">
-                    <span>6 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ma10.jpg" alt="Mahindra Alturas G4" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Alturas G4</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹33.70 - 35.80 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ma11.jpg" alt="Mahindra XUV500" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">XUV500</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹15.00 - 18.00 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ma12.jpg" alt="Mahindra TUV300" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">TUV300</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹8.41 - 10.55 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ma13.jpg" alt="Mahindra NuvoSport" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">NuvoSport</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹9.27 - 11.77 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ma14.jpg" alt="Mahindra Verito" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Verito</h3>
-                <p class="car-brand">Mahindra</p>
-                <div class="car-price">₹5.50 - 7.50 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
             
-            <!-- Hyundai Section -->
-<div class="brand-section bg-section-4" id="hyundai">
-    <h2 class="brand-title">Hyundai</h2>
-    <div class="car-grid">
-        <!-- Hyundai Cars -->
-        <div class="car-card">
-            <img src="h1.jpg" alt="Hyundai Creta" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Creta</h3>
-                <p class="car-brand">Hyundai</p>
-                <div class="car-price">₹10.87 - 19.20 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="h2.jpg" alt="Hyundai Venue" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Venue</h3>
-                <p class="car-brand">Hyundai</p>
-                <div class="car-price">₹7.53 - 12.72 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="h3.jpg" alt="Hyundai Tucson" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Tucson</h3>
-                <p class="car-brand">Hyundai</p>
-                <div class="car-price">₹27.70 - 35.00 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="h4.jpg" alt="Hyundai Alcazar" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Alcazar</h3>
-                <p class="car-brand">Hyundai</p>
-                <div class="car-price">₹16.30 - 20.15 Lakh</div>
-                <div class="car-details">
-                    <span>6/7 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="h5.jpg" alt="Hyundai i20" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">i20</h3>
-                <p class="car-brand">Hyundai</p>
-                <div class="car-price">₹6.91 - 11.40 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="h6.jpg" alt="Hyundai i20 N Line" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">i20 N Line</h3>
-                <p class="car-brand">Hyundai</p>
-                <div class="car-price">₹9.90 - 11.50 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="h7.jpg" alt="Hyundai Verna" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Verna</h3>
-                <p class="car-brand">Hyundai</p>
-                <div class="car-price">₹10.96 - 17.38 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="h8.jpg" alt="Hyundai Aura" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Aura</h3>
-                <p class="car-brand">Hyundai</p>
-                <div class="car-price">₹6.09 - 8.63 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/CNG</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="h9.jpg" alt="Hyundai Grand i10 Nios" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Grand i10 Nios</h3>
-                <p class="car-brand">Hyundai</p>
-                <div class="car-price">₹5.28 - 8.50 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/CNG</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="h10.jpg" alt="Hyundai Santro" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Santro</h3>
-                <p class="car-brand">Hyundai</p>
-                <div class="car-price">₹4.73 - 6.45 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/CNG</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-            
-            
-            
-            <!-- Toyota Section -->
-<div class="brand-section bg-section-6" id="toyota">
-    <h2 class="brand-title">Toyota</h2>
-    <div class="car-grid">
-        <!-- Toyota Cars -->
-        <div class="car-card">
-            <img src="ts1.jpg" alt="Toyota Innova Crysta" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Innova Crysta</h3>
-                <p class="car-brand">Toyota</p>
-                <div class="car-price">₹17.13 - 24.44 Lakh</div>
-                <div class="car-details">
-                    <span>7/8 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ts2.jpg" alt="Toyota Fortuner" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Fortuner</h3>
-                <p class="car-brand">Toyota</p>
-                <div class="car-price">₹32.59 - 44.15 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ts3.jpg" alt="Toyota Urban Cruiser" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Urban Cruiser</h3>
-                <p class="car-brand">Toyota</p>
-                <div class="car-price">₹8.63 - 11.46 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ts4.jpg" alt="Toyota Glanza" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Glanza</h3>
-                <p class="car-brand">Toyota</p>
-                <div class="car-price">₹6.51 - 9.27 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/CNG</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ts5.jpg" alt="Toyota Yaris" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Yaris</h3>
-                <p class="car-brand">Toyota</p>
-                <div class="car-price">₹9.16 - 14.60 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ts6.jpg" alt="Toyota Camry" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Camry</h3>
-                <p class="car-brand">Toyota</p>
-                <div class="car-price">₹43.45 - 46.20 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Hybrid</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ts7.jpg" alt="Toyota Vellfire" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Vellfire</h3>
-                <p class="car-brand">Toyota</p>
-                <div class="car-price">₹93.47 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Hybrid</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ts8.jpg" alt="Toyota Hilux" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Hilux</h3>
-                <p class="car-brand">Toyota</p>
-                <div class="car-price">₹33.99 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ts9.jpg" alt="Toyota Innova Hycross" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Innova Hycross</h3>
-                <p class="car-brand">Toyota</p>
-                <div class="car-price">₹18.30 - 28.97 Lakh</div>
-                <div class="car-details">
-                    <span>7/8 Seater</span>
-                    <span>Hybrid</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ts10.jpg" alt="Toyota Land Cruiser" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Land Cruiser</h3>
-                <p class="car-brand">Toyota</p>
-                <div class="car-price">₹1.50 - 2.10 Crore</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ts11.jpg" alt="Toyota Corolla Altis" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Corolla Altis</h3>
-                <p class="car-brand">Toyota</p>
-                <div class="car-price">₹16.46 - 20.00 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        <div class="car-card">
-            <img src="ts12.jpg" alt="Toyota Innova" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Innova</h3>
-                <p class="car-brand">Toyota</p>
-                <div class="car-price">₹10.00 - 15.00 Lakh</div>
-                <div class="car-details">
-                    <span>7/8 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="ts13.jpg" alt="Toyota Fortuner Legender" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Fortuner Legender</h3>
-                <p class="car-brand">Toyota</p>
-                <div class="car-price">₹42.33 - 44.15 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Diesel</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-            
-            <!-- Honda Section -->
-            <div class="brand-section bg-section-7" id="honda">
-    <h2 class="brand-title">Honda</h2>
-    <div class="car-grid">
-        <!-- Honda Cars -->
-        <div class="car-card">
-            <img src="hh1.jpg" alt="Honda City" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">City</h3>
-                <p class="car-brand">Honda</p>
-                <div class="car-price">₹11.16 - 15.11 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="hh2.jpg" alt="Honda Amaze" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Amaze</h3>
-                <p class="car-brand">Honda</p>
-                <div class="car-price">₹6.62 - 11.05 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="hh3.jpg" alt="Honda Civic" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Civic</h3>
-                <p class="car-brand">Honda</p>
-                <div class="car-price">₹17.93 - 21.25 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="hh4.jpg" alt="Honda CR-V" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">CR-V</h3>
-                <p class="car-brand">Honda</p>
-                <div class="car-price">₹28.27 - 34.97 Lakh</div>
-                <div class="car-details">
-                    <span>5/7 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="hh5.jpg" alt="Honda Accord" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Accord</h3>
-                <p class="car-brand">Honda</p>
-                <div class="car-price">₹43.21 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Hybrid</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="hh6.jpg" alt="Honda BR-V" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">BR-V</h3>
-                <p class="car-brand">Honda</p>
-                <div class="car-price">₹9.50 - 13.00 Lakh</div>
-                <div class="car-details">
-                    <span>7 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="hh7.jpg" alt="Honda Mobilio" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Mobilio</h3>
-                <p class="car-brand">Honda</p>
-                <div class="car-price">₹7.50 - 12.00 Lakh</div>
-                <div class="car-details">
-                    <span>7/8 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="hh8.jpg" alt="Honda Brio" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Brio</h3>
-                <p class="car-brand">Honda</p>
-                <div class="car-price">₹4.73 - 6.82 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="hh9.jpg" alt="Honda City ZX" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">City ZX</h3>
-                <p class="car-brand">Honda</p>
-                <div class="car-price">₹14.00 - 15.11 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="hh10.jpg" alt="Honda City V" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">City V</h3>
-                <p class="car-brand">Honda</p>
-                <div class="car-price">₹11.16 - 13.00 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="car-card">
-            <img src="hh11.jpg" alt="Honda Amaze VX" class="car-image">
-            <div class="car-info">
-                <h3 class="car-name">Amaze VX</h3>
-                <p class="car-brand">Honda</p>
-                <div class="car-price">₹9.00 - 11.05 Lakh</div>
-                <div class="car-details">
-                    <span>5 Seater</span>
-                    <span>Petrol/Diesel</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+          
+            <div class="brand-section bg-section-2" id="mahindra">
+                <h2 class="brand-title">Mahindra</h2>
+                <div class="car-grid">
+                  
+                    <div class="car-card">
+                        <img src="ma1.jpg" alt="Mahindra XUV700" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">XUV700</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹13.45 - 25.48 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ma2.jpg" alt="Mahindra Thar" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Thar</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹10.54 - 16.77 Lakh</div>
+                            <div class="car-details">
+                                <span>4/7 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ma3.jpg" alt="Mahindra Scorpio N" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Scorpio N</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹11.99 - 23.90 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ma4.jpg" alt="Mahindra XUV300" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">XUV300</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹7.99 - 14.56 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ma5.jpg" alt="Mahindra XUV400" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">XUV400</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹15.99 - 18.99 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Electric</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ma6.jpg" alt="Mahindra Bolero" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Bolero</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹9.78 - 10.79 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ma7.jpg" alt="Mahindra Bolero Neo" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Bolero Neo</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹9.63 - 12.14 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ma18.jpg" alt="Mahindra Marazzo" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Marazzo</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹13.17 - 15.50 Lakh</div>
+                            <div class="car-details">
+                                <span>7/8 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ma9.jpg" alt="Mahindra KUV100" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">KUV100</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹5.54 - 7.56 Lakh</div>
+                            <div class="car-details">
+                                <span>6 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ma10.jpg" alt="Mahindra Alturas G4" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Alturas G4</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹33.70 - 35.80 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ma11.jpg" alt="Mahindra XUV500" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">XUV500</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹15.00 - 18.00 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ma12.jpg" alt="Mahindra TUV300" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">TUV300</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹8.41 - 10.55 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ma13.jpg" alt="Mahindra NuvoSport" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">NuvoSport</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹9.27 - 11.77 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ma14.jpg" alt="Mahindra Verito" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Verito</h3>
+                            <p class="car-brand">Mahindra</p>
+                            <div class="car-price">₹5.50 - 7.50 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
             
+            <div class="brand-section bg-section-4" id="hyundai">
+                <h2 class="brand-title">Hyundai</h2>
+                <div class="car-grid">
+                   
+                    <div class="car-card">
+                        <img src="h1.jpg" alt="Hyundai Creta" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Creta</h3>
+                            <p class="car-brand">Hyundai</p>
+                            <div class="car-price">₹10.87 - 19.20 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="h2.jpg" alt="Hyundai Venue" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Venue</h3>
+                            <p class="car-brand">Hyundai</p>
+                            <div class="car-price">₹7.53 - 12.72 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="h3.jpg" alt="Hyundai Tucson" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Tucson</h3>
+                            <p class="car-brand">Hyundai</p>
+                            <div class="car-price">₹27.70 - 35.00 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="h4.jpg" alt="Hyundai Alcazar" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Alcazar</h3>
+                            <p class="car-brand">Hyundai</p>
+                            <div class="car-price">₹16.30 - 20.15 Lakh</div>
+                            <div class="car-details">
+                                <span>6/7 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="h5.jpg" alt="Hyundai i20" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">i20</h3>
+                            <p class="car-brand">Hyundai</p>
+                            <div class="car-price">₹6.91 - 11.40 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="h6.jpg" alt="Hyundai i20 N Line" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">i20 N Line</h3>
+                            <p class="car-brand">Hyundai</p>
+                            <div class="car-price">₹9.90 - 11.50 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="h7.jpg" alt="Hyundai Verna" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Verna</h3>
+                            <p class="car-brand">Hyundai</p>
+                            <div class="car-price">₹10.96 - 17.38 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="h8.jpg" alt="Hyundai Aura" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Aura</h3>
+                            <p class="car-brand">Hyundai</p>
+                            <div class="car-price">₹6.09 - 8.63 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/CNG</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="h9.jpg" alt="Hyundai Grand i10 Nios" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Grand i10 Nios</h3>
+                            <p class="car-brand">Hyundai</p>
+                            <div class="car-price">₹5.28 - 8.50 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/CNG</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="h10.jpg" alt="Hyundai Santro" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Santro</h3>
+                            <p class="car-brand">Hyundai</p>
+                            <div class="car-price">₹4.73 - 6.45 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/CNG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="brand-section bg-section-6" id="toyota">
+                <h2 class="brand-title">Toyota</h2>
+                <div class="car-grid">
+                  
+                    <div class="car-card">
+                        <img src="ts1.jpg" alt="Toyota Innova Crysta" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Innova Crysta</h3>
+                            <p class="car-brand">Toyota</p>
+                            <div class="car-price">₹17.13 - 24.44 Lakh</div>
+                            <div class="car-details">
+                                <span>7/8 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ts2.jpg" alt="Toyota Fortuner" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Fortuner</h3>
+                            <p class="car-brand">Toyota</p>
+                            <div class="car-price">₹32.59 - 44.15 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ts3.jpg" alt="Toyota Urban Cruiser" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Urban Cruiser</h3>
+                            <p class="car-brand">Toyota</p>
+                            <div class="car-price">₹8.63 - 11.46 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ts4.jpg" alt="Toyota Glanza" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Glanza</h3>
+                            <p class="car-brand">Toyota</p>
+                            <div class="car-price">₹6.51 - 9.27 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/CNG</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ts5.jpg" alt="Toyota Yaris" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Yaris</h3>
+                            <p class="car-brand">Toyota</p>
+                            <div class="car-price">₹9.16 - 14.60 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ts6.jpg" alt="Toyota Camry" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Camry</h3>
+                            <p class="car-brand">Toyota</p>
+                            <div class="car-price">₹43.45 - 46.20 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Hybrid</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ts7.jpg" alt="Toyota Vellfire" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Vellfire</h3>
+                            <p class="car-brand">Toyota</p>
+                            <div class="car-price">₹93.47 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Hybrid</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ts8.jpg" alt="Toyota Hilux" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Hilux</h3>
+                            <p class="car-brand">Toyota</p>
+                            <div class="car-price">₹33.99 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ts9.jpg" alt="Toyota Innova Hycross" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Innova Hycross</h3>
+                            <p class="car-brand">Toyota</p>
+                            <div class="car-price">₹18.30 - 28.97 Lakh</div>
+                            <div class="car-details">
+                                <span>7/8 Seater</span>
+                                <span>Hybrid</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ts10.jpg" alt="Toyota Land Cruiser" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Land Cruiser</h3>
+                            <p class="car-brand">Toyota</p>
+                            <div class="car-price">₹1.50 - 2.10 Crore</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ts11.jpg" alt="Toyota Corolla Altis" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Corolla Altis</h3>
+                            <p class="car-brand">Toyota</p>
+                            <div class="car-price">₹16.46 - 20.00 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ts12.jpg" alt="Toyota Innova" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Innova</h3>
+                            <p class="car-brand">Toyota</p>
+                            <div class="car-price">₹10.00 - 15.00 Lakh</div>
+                            <div class="car-details">
+                                <span>7/8 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="ts13.jpg" alt="Toyota Fortuner Legender" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Fortuner Legender</h3>
+                            <p class="car-brand">Toyota</p>
+                            <div class="car-price">₹42.33 - 44.15 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="brand-section bg-section-7" id="honda">
+                <h2 class="brand-title">Honda</h2>
+                <div class="car-grid">
+                   
+                    <div class="car-card">
+                        <img src="hh1.jpg" alt="Honda City" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">City</h3>
+                            <p class="car-brand">Honda</p>
+                            <div class="car-price">₹11.16 - 15.11 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="hh2.jpg" alt="Honda Amaze" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Amaze</h3>
+                            <p class="car-brand">Honda</p>
+                            <div class="car-price">₹6.62 - 11.05 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="hh3.jpg" alt="Honda Civic" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Civic</h3>
+                            <p class="car-brand">Honda</p>
+                            <div class="car-price">₹17.93 - 21.25 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="hh4.jpg" alt="Honda CR-V" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">CR-V</h3>
+                            <p class="car-brand">Honda</p>
+                            <div class="car-price">₹28.27 - 34.97 Lakh</div>
+                            <div class="car-details">
+                                <span>5/7 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="hh5.jpg" alt="Honda Accord" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Accord</h3>
+                            <p class="car-brand">Honda</p>
+                            <div class="car-price">₹43.21 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Hybrid</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="hh6.jpg" alt="Honda BR-V" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">BR-V</h3>
+                            <p class="car-brand">Honda</p>
+                            <div class="car-price">₹9.50 - 13.00 Lakh</div>
+                            <div class="car-details">
+                                <span>7 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="hh7.jpg" alt="Honda Mobilio" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Mobilio</h3>
+                            <p class="car-brand">Honda</p>
+                            <div class="car-price">₹7.50 - 12.00 Lakh</div>
+                            <div class="car-details">
+                                <span>7/8 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="hh8.jpg" alt="Honda Brio" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Brio</h3>
+                            <p class="car-brand">Honda</p>
+                            <div class="car-price">₹4.73 - 6.82 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="hh9.jpg" alt="Honda City ZX" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">City ZX</h3>
+                            <p class="car-brand">Honda</p>
+                            <div class="car-price">₹14.00 - 15.11 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="hh10.jpg" alt="Honda City V" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">City V</h3>
+                            <p class="car-brand">Honda</p>
+                            <div class="car-price">₹11.16 - 13.00 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-card">
+                        <img src="hh11.jpg" alt="Honda Amaze VX" class="car-image">
+                        <div class="car-info">
+                            <h3 class="car-name">Amaze VX</h3>
+                            <p class="car-brand">Honda</p>
+                            <div class="car-price">₹9.00 - 11.05 Lakh</div>
+                            <div class="car-details">
+                                <span>5 Seater</span>
+                                <span>Petrol/Diesel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
-    <!-- Footer -->
+ 
     <footer class="footer">
         <p>&copy; 2025 Drive Nest. All rights reserved. | Experience the pinnacle of automotive excellence</p>
         <div class="social-links">
